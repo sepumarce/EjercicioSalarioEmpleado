@@ -31,14 +31,38 @@ public class Main {
         double ValorHora = 0;
         double CantidadHoras = 0;
         double BonificacionEmpleado = 0;
+        double ValorSalarioMinimo = 0;
         int AuxilioTransporte = 2000000;
 
         System.out.print("Ingrese su usuario:");
         UsuarioEmpleado = sc.nextLine();
         System.out.print("Ingrese su contrasena:");
         ContrasenaUsuario = sc.nextLine();
-        if(UsuarioEmpleado.equals("admin") && ContrasenaUsuario.equals("admin")) {
+        if(UsuarioEmpleado.equals("admin") && ContrasenaUsuario.equals("admin")){
             System.out.print("Ha ingresado de forma correcta");
+            System.out.println("Ingrese en nombre del empleado: ");
+            NombreEmpleado = sc.nextLine();
+            System.out.println("Ingrese su documento del identidad: ");
+            Documentoidentidad = sc.nextLine();
+            System.out.println("ingrese el día de descanso (lunes-viernes): ");
+            DiaDescanso = sc.nextLine();
+            System.out.println("Ingrese el valor de la  hora: ");
+            ValorHora = sc.nextDouble();
+            System.out.println("ingresa la cantidad de horas trabajadas: ");
+            CantidadHoras = sc.nextDouble();
+            SalarioBruto = ValorHora *  CantidadHoras;
+            System.out.println("Ingrese el valor de salario minimo para este año: ");
+            ValorSalarioMinimo = sc.nextDouble();
+
+            if(SalarioBruto > (ValorSalarioMinimo*2)){
+                BonificacionEmpleado = 0;
+                AuxilioTransporte = 0;
+            }else {
+                BonificacionEmpleado = SalarioBruto*0.1;
+                AuxilioTransporte = 200000;
+                SalarioNeto = SalarioBruto + BonificacionEmpleado + AuxilioTransporte;
+                System.out.println("El salario neto es: " + SalarioNeto);
+            }
 
             }else {
             System.out.println("Error de credenciales");
